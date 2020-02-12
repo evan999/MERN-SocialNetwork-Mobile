@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { StyleSheet, Button, View, Text } from 'react-native';
 
-export default class LoginScreen extends React.Component {
+export default class RegisterScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Login</Text>
+        <Text>Register</Text>
       </View>
     );
   }
