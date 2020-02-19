@@ -32,6 +32,14 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 };
 */
 export default class RegisterScreen extends React.Component {
+  static navigationOptions = {
+    headerTitle: 'Register',
+    headerTintColor: '#fff',
+    headerStyle: {
+      backgroundColor: 'teal'
+    }
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -68,7 +76,7 @@ export default class RegisterScreen extends React.Component {
         />
         <Button
           title='Enter'
-          onPress={() => this.props.navigation.navigate('Home')}
+          onPress={() => this.props.navigation.navigate('Dashboard')}
         />
       </View>
     );
