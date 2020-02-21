@@ -1,36 +1,9 @@
 import React, { Component, useState } from 'react';
 import { connect } from 'redux';
-
 import { Keyboard, StyleSheet, Button, View, Text } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
+import PropTypes from 'prop-types';
 
-/*
-const Register = ({ setAlert, register, isAuthenticated }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    verifyPassword: ''
-  });
-
-  const { name, email, password, verifyPassword } = formData;
-
-  const onChange = e =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-
-  const onSubmit = async e => {
-    e.preventDefault();
-    if (password !== verifyPassword) {
-      alert('Passwords do not match. Please try again.');
-    } else {
-      register({ name, email, password });
-    }
-  };
-  if (isAuthenticated) {
-    this.props.navigation.navigate('Dashboard');
-  }
-};
-*/
 export default class RegisterScreen extends React.Component {
   static navigationOptions = {
     headerTitle: 'Register',
@@ -48,30 +21,46 @@ export default class RegisterScreen extends React.Component {
         </View>
         <Text>Name</Text>
         <TextInput
+          type='text'
           style={styles.textInput}
-          placeholder='Your name'
+          placeholder='Name'
+          name='name'
+          value={name}
           maxLength={20}
+          onChange={e => onChange(e)}
           onBlur={Keyboard.dismiss}
         />
         <Text>Email</Text>
         <TextInput
+          type='email'
           style={styles.textInput}
           placeholder='Email'
+          name='email'
+          value={email}
           maxLength={20}
+          onChange={e => onChange(e)}
           onBlur={Keyboard.dismiss}
         />
         <Text>Password</Text>
         <TextInput
+          type='password'
           style={styles.textInput}
           placeholder='Password'
+          name='password'
+          value={password}
           maxLength={20}
+          onChange={e => onChange(e)}
           onBlur={Keyboard.dismiss}
         />
         <Text>Verify Password</Text>
         <TextInput
+          type='password'
           style={styles.textInput}
-          placeholder='Enter password again'
+          placeholder='Confirm password'
+          name='verifyPassword'
+          value={verifyPassword}
           maxLength={20}
+          onChange={e => onChange(e)}
           onBlur={Keyboard.dismiss}
         />
         <Button
